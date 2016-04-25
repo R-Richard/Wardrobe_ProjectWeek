@@ -1,72 +1,156 @@
-﻿@model Wardrobe_Take2.Models.Accessories
+﻿@* header, navbar and footer added to delete - unable to add images???? *@
+
+@model Wardrobe_Take2.Models.Accessories
 
 @{
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Accessories</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nickname)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nickname)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Photo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Photo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Color)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Color)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Season)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Season)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Occasion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Occasion)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="page-header">
+    <h1>
+        The Wardrobe Assistant
+    </h1>
 </div>
+
+
+@*NavBar*@
+<nav class="navbar transparent navbar-inverse">
+    <div class="container-inner">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" @Html.ActionLink("Home", "Index", "Home")</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clothing Type<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li>@Html.ActionLink("Tops", "Index", "Tops")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Bottoms", "Index", "Bottoms")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Shoes", "Index", "Shoes")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Accessories", "Index", "Accessories")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Season<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="#">Spring</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Summer</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Fall</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Winter</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+@*For the Footer*@
+<div id="page-wrap">
+
+
+
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Accessories</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nickname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nickname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Photo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Photo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Season)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Season)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Occasion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Occasion)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+
+ 
+    
+    
+     
+
+</div>
+<footer class="site-footer">
+    <div class="container">
+        <div id="textbox">
+            <p class=" alignLeft">No Copywrite Necessary</p>
+            <p class="alignRight">Richard Raponi | 2016</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</footer>

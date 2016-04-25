@@ -1,80 +1,248 @@
-﻿@model Wardrobe_Take2.Models.Shoes
+﻿@*Header/navbar/footer/thumbnail directory added to Create for unifrom pages*@ 
+
+@model Wardrobe_Take2.Models.Shoes
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Shoes</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nickname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nickname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nickname, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Occasion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Occasion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Occasion, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="page-header">
+    <h1>
+        The Wardrobe Assistant
+    </h1>
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+@*NavBar*@
+<nav class="navbar transparent navbar-inverse">
+    <div class="container-inner">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" @Html.ActionLink("Home", "Index", "Home")</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clothing Type<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li>@Html.ActionLink("Tops", "Index", "Tops")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Bottoms", "Index", "Bottoms")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Shoes", "Index", "Shoes")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Accessories", "Index", "Accessories")</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Season<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="#">Spring</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Summer</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Fall</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Winter</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+@*For the Footer*@
+<div id="page-wrap">
+
+
+    <h2>Create</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Shoes</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nickname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nickname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nickname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Photo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Color, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Season, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Season, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Season, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Occasion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Occasion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Occasion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+    <div class="container">
+        <div class="spaced-row">
+
+
+            <!-- TH1 -->
+            @*<div class="col-md-3">
+                <div class="thumbnail">
+
+
+                    <img id="ImgSize" src="../Images/Spring.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>*@
+
+            <!-- TH2 -->
+            @*<div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="#" class="">
+
+                        <img id="ImgSize" src="../Images/Summer.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>*@
+
+            <!-- TH2 -->
+            @*<div class="col-md-3">
+                <div class="thumbnail">
+                    <a href="#" class="">
+
+                        <img id="ImgSize" src="../Images/Fall.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>*@
+
+            <!-- TH4 -->
+            @*<div class="col-sm-3">
+                <div class="thumbnail">
+                    <img id="ImgSize" src="../Images/Winter.jpg" alt="..." class="">
+                </div>
+
+            </div>*@
+
+            <!-- TH5 -->
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href='@Url.Action("Index", "Tops")'>
+
+                        <img id="ImgSize" src="../Images/Tops.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>
+
+            <!-- TH6 -->
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href='@Url.Action("Index", "Bottoms")'>
+
+
+                        <img id="ImgSize" src="../Images/Bottoms.jpg" alt="..." class="">
+
+                    </a>
+                </div>
+            </div>
+
+            <!-- TH7 -->
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <a href='@Url.Action("Index", "Shoes")'>
+
+                        <img id="ImgSize" src="../Images/Shoes.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>
+
+            <!-- TH8 -->
+            <div class="col-sm-3">
+                <div class="thumbnail">
+                    <a href='@Url.Action("Index", "Accessories")'>
+
+                        <img id="ImgSize" src="../Images/Accessories.jpg" alt="..." class="">
+                    </a>
+                </div>
+            </div>
+
+
+        </div><!--/row -->
+
+    </div> <!-- end container -->
+
+
+</div>
+<footer class="site-footer">
+    <div class="container">
+        <div id="textbox">
+            <p class=" alignLeft">No Copywrite Necessary</p>
+            <p class="alignRight">Richard Raponi | 2016</p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</footer>

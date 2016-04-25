@@ -176,6 +176,7 @@
     <Compile Include="Models\Accessories.cs" />
     <Compile Include="Models\Bottoms.cs" />
     <Compile Include="Models\Shoes.cs" />
+    <Compile Include="Models\TestClass.cs" />
     <Compile Include="Models\Tops.cs" />
     <Compile Include="Models\Wardrobe_Take2Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -190,13 +191,16 @@
     <Content Include="Images\Accessories.jpg" />
     <Content Include="Images\belt.jpg" />
     <Content Include="Images\Black tshirt.jpeg" />
+    <Content Include="Images\blackDressShoes.jpg" />
     <Content Include="Images\blueJeans.jpg" />
     <Content Include="Images\blueTshirt.jpg" />
+    <Content Include="Images\boots.jpeg" />
     <Content Include="Images\Bottoms.jpg" />
     <Content Include="Images\cuffLinks.jpg" />
     <Content Include="Images\Fall.jpg" />
     <Content Include="Images\grayDressPants.jpg" />
     <Content Include="Images\graySweater.jpg" />
+    <Content Include="Images\grey boat shoes.jpg" />
     <Content Include="Images\Plaid.jpg" />
     <Content Include="Images\Shoes.jpg" />
     <Content Include="Images\shorts.jpg" />

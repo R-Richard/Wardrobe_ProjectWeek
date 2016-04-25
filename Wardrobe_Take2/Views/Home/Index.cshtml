@@ -1,14 +1,17 @@
-﻿@{
+﻿@* Bootstraph components used -navbar, thumbnails, page header, drowdown menu, seperator on dropdown menu, lists, button, linked items *@
+
+@{
     ViewBag.Title = "Wardrobe Assistant";
 }
+
+@* Home Page info  Create head w/ name page header bootstrap component  *@ 
 <div class="page-header">
     <h1>
-       The Wardrobe Assistant
+        The Wardrobe Assistant
     </h1>
 </div>
 
-
-@*NavBar Test*@
+@*Create NavBar from bootsrap site --- using dropdown components w/ seperator and Button for Home*@
 <nav class="navbar transparent navbar-inverse">
     <div class="container-inner">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -19,7 +22,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" @Html.ActionLink("Home", "Index", "Home")</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,18 +31,18 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clothing Type<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-
-                        <li><a href="#">Tops</a></li>
+                        @* Create Action Links to navigate through page using bootstrap list component *@
+                        <li>@Html.ActionLink("Tops", "Index", "Tops")</li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Bottoms</a></li>
+                        <li>@Html.ActionLink("Bottoms", "Index", "Bottoms")</li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Shoes</a></li>
+                        <li>@Html.ActionLink("Shoes", "Index", "Shoes")</li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Accessories</a></li>
+                        <li>@Html.ActionLink("Accessories", "Index", "Accessories")</li>
                     </ul>
                 </li>
             </ul>
-            <ul class="nav navbar-nav">
+            @*<ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Season<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -53,287 +56,166 @@
                         <li><a href="#">Winter</a></li>
                     </ul>
                 </li>
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-            @*<ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
             </ul>*@
+
+
+
+            @*<form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>*@
+            @*<ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>*@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
+@*For the Footer*@
+<div id="page-wrap">
 
 
-@*<div class="img-responsive container containerSec">*@
-
-    @*<div class="container">
-        <div id="ImgLeft" class="row">
-            <div class="col-sm-1">
-                <img id=ImgSizeSmall src="../Images/Shoes.jpg" />
-            </div>
-        </div>
-    </div>
 
     <div class="container">
-        <div class="row">
-            <div id="ImgRight" class="col-md-4">
-                <img id=ImgSizeSmall src="../Images/Shoes.jpg" />
+
+            <div class="spaced-row">
+                <div class="col-md-12 bgimage">
+                    <div class="bgimage-inside">
+                    </div>
+                </div>
             </div>
         </div>
-    </div>*@
-@*<div id="ImgLeft">
-    <img id=ImgSizeSmall src="../Images/Fall.jpg" />
-</div>*@
+    
 
-<div class="container">
+    @* image links placed at the bottom of each page - responsive thumbnails *@
+    
 
-    <div class="row">
-        <div class="col-md-12 bgimage">
-            <div class="bgimage-inside">
-            </div>
-        </div>
+        <div class="container">
+            <div class="spaced-row">
+
+                <!-- TH1 -->
+                <div class="col-md-3">
+                    <img id="ImgSize" src="../Images/Spring.jpg" alt="..." class="">
+                    <div class="carousel-caption"></div>         
+                        <p>Season Links Coming Soon!</p>
+                    </div>
+               
+          
+                <!-- TH2 -->
+                <div class="col-md-3">
+                    <img id="ImgSize" src="../Images/Summer.jpg" alt="..." class="">
+                    <div class="carousel-caption"></div>  
+                    <p>Season Links Coming Soon!</p>
+                </div>
+           
+
+                <!-- TH2 -->
+                <div class="col-md-3">
+                    <img id="ImgSize" src="../Images/Fall.jpg" alt="..." class="">
+                    <div class="carousel-caption"></div> 
+                    <p>Season Links Coming Soon!</p>
+                    </div>
+  
+                <!-- TH4 -->
+                <div class="col-sm-3">
+                    <img id="ImgSize" src="../Images/Winter.jpg" alt="..." class="">
+                    <div class="carousel-caption"></div> 
+                    <p>Season Links Coming Soon!</p>
+                    </div>
+
+             
+
+                <!-- TH5 -->
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href='@Url.Action("Index", "Tops")'>
+                            @*<div class="caption">
+                                    <h4 class="">Tops</h4>
+                                    <p class="">
+                                        View, Create, Edit Tops
+                                    </p>
+                                </div>*@
+
+                            <img id="ImgSize" src="../Images/Tops.jpg" alt="..." class="">
+                            </>
+                    </div>
+                </div>
+
+                <!-- TH6 -->
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href='@Url.Action("Index", "Bottoms")'>
+
+
+                            @*<div class="caption">
+                                    <h4 class="">Bottoms</h4>
+                                    <p class="">
+                                        View, Create, Edit Bottoms
+                                    </p>
+                                </div>*@
+                            <img id="ImgSize" src="../Images/Bottoms.jpg" alt="..." class="">
+
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TH7 -->
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <a href='@Url.Action("Index", "Shoes")'>
+
+                            @*<div class="caption">
+                                    <h4 class="">Shoes</h4>
+                                    <p class="">
+                                        View, Create, Edit Bottoms
+                                    </p>
+                                </div>*@
+                            <img id="ImgSize" src="../Images/Shoes.jpg" alt="..." class="">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- TH8 -->
+                <div class="col-sm-3">
+                    <div class="thumbnail">
+                        <a href='@Url.Action("Index", "Accessories")'>
+
+                            @*<div class="caption">
+                                    <h4 class="">Accessories</h4>
+                                    <p class="">
+                                        View, Create, Edit Bottoms
+                                    </p>
+                                </div>*@
+                            <img id="ImgSize" src="../Images/Accessories.jpg" alt="..." class="">
+                        </a>
+                    </div>
+                </div>
+
+
+            </div><!--/row -->
+
+        </div> <!-- end container -->
+    @* simple footer, aligned to bottom of page *@
+
     </div>
-</div>
-
-@*<h1 class="container" id="ImgLeft">
-    <img src="../Images/Tops.jpg" />
-</h1>
-@*<div id="ImgLeft">
-    <img id=ImgSizeSmall src="../Images/Fall.jpg" />
-</div>*@
-    @*<div class="jumbotron mainSec">
-    <h1 class="container">
-        <img id=ImgSizeSmall src="../Images/Tops.jpg" />
-    </h1>
-</div>*@
-       
-      
-        @*<div id="ImgRight">
-                <img id=ImgSizeSmall src="../Images/Fall.jpg" />
-            </div>*@
-
-
-        @*<h1 class="container"> <img id=CenterImg src="../Images/wardrobe_sketch.jpg" /> </h1>*@
-
-
-@*</div>*@
-
-    <div class="row container previewThem">
-
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img id="ImgSize" src="../Images/Spring.jpg" /> @*alt="Spring Flowers">*@
-            </div>
-        </div>
-
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img id="ImgSize" src="../Images/Summer.jpg" />@*alt="Summer Flowers">*@
-            </div>
-        </div>
-
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img id="ImgSize" src="../Images/Fall.jpg" /> @*alt="Fall Trees">*@
-            </div>
-        </div>
-
-        <div class="col-sm-3 col-md-3">
-            <div class="thumbnail">
-                <img id="ImgSize" src="../Images/Winter.jpg" /> @*alt="Flowers in Winter">*@
-            </div>
-        </div>
-    </div>
-
-<div id="footer">
+<footer class ="site-footer">
     <div class="container">
-        <p>&nbsp;</p>
-        <p class="lead">This Bootstrap layout was made</p>
+        <div id="textbox">
+            <p class=" alignLeft">No Copywrite Necessary</p>
+            <p class="alignRight">Richard Raponi | 2016</p>
+        </div>
+        <div style="clear: both;"></div>
     </div>
-</div>
-
-
-@*<div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-2">
-        <div class="thumbnail">
-            <img id="ImgLeft" src="../Images/Spring.jpg" /> @*alt="Spring Flowers">*@
-        @*</div>
-    </div>
-    <div class="col-md-6"></div>
-    <div class="col-md-2">
-        <div class="thumbnail">
-            <img id="ImgLeft" src="../Images/Spring.jpg" />
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-</div>*@
-
-
-<div class="container">
-    <div class="row">
-
-
-        <!-- TH1 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Tops</h4>
-
-                        <p class="">
-                            View, Create, Edit Tops
-
-
-                        </p>
-                    </div>
-
-                    <img id="ImgSize" src="../Images/Tops.jpg" alt="..." class="">
-                </a>
-            </div>
-        </div>
-
-        <!-- TH2 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Bottoms</h4>
-
-                        <p class="">
-                            View, Create, Edit Bottoms
-
-
-
-                        </p>
-                    </div>
-                    <img id="ImgSize" src="../Images/Bottoms.jpg" alt="..." class="">
-         
-                </a>
-            </div>
-        </div>
-
-        <!-- TH2 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Shoes</h4>
-
-                        <p class="">
-                            View, Create, Edit Bottoms
-
-                        </p>
-                    </div>
-                    <img id="ImgSize" src="../Images/Shoes.jpg" alt="..." class="">
-                </a>
-            </div>
-        </div>
-
-        <!-- TH4 -->
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4 class="">Accessories</h4>
-
-                    <p class="">
-
-                        <a href="#" class="label label-default">Open</a>
-
-                    </p>
-                </div>
-                <img id="ImgSize" src="../Images/Accessories.jpg" alt="..." class="">
-            </div>
-        </div>
-
-        <!-- TH5 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Tops</h4>
-
-                        <p class="">
-                            View, Create, Edit Tops
-
-
-                        </p>
-                    </div>
-
-                    <img id="ImgSize" src="../Images/Tops.jpg" alt="..." class="">
-                </a>
-            </div>
-        </div>
-
-        <!-- TH6 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Bottoms</h4>
-
-                        <p class="">
-                            View, Create, Edit Bottoms
-
-
-
-                        </p>
-                    </div>
-                    <img id="ImgSize" src="../Images/Bottoms.jpg" alt="..." class="">
-
-                </a>
-            </div>
-        </div>
-
-        <!-- TH7 -->
-        <div class="col-md-3">
-            <div class="thumbnail">
-                <a href="#" class="">
-                    <div class="caption">
-                        <h4 class="">Shoes</h4>
-
-                        <p class="">
-                            View, Create, Edit Bottoms
-
-                        </p>
-                    </div>
-                    <img id="ImgSize"  src="../Images/Shoes.jpg" alt="..." class="">
-                </a>
-            </div>
-        </div>
-
-        <!-- TH8 -->
-        <div class="col-sm-3">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h4 class="">Accessories</h4>
-
-                    <p class="">
-
-                        <a href="#" class="label label-default">Open</a>
-
-                    </p>
-                </div>
-                <img id="ImgSize" src="../Images/Accessories.jpg" alt="..." class="">
-            </div>
-        </div>
-
-
-    </div><!--/row -->
-
-</div> <!-- end container -->
+</footer>
